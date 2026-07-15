@@ -4,14 +4,14 @@
  * National Digital Blood Grid Entry Point
  */
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const crypto = require('crypto');
+import express from 'express';
+import bodyParser from 'body-parser';
+import crypto from 'crypto';
 
 // Import core modules
-const security = require('./src/core/security');
-const transparency = require('./src/api/transparency');
-const gemini = require('./src/utils/geminiConnector');
+import security from './src/core/security.js';
+import transparency from './src/api/transparency.js';
+import gemini from './src/utils/geminiConnector.js';
 
 // Initialize Express application
 const app = express();
@@ -591,10 +591,10 @@ app.use((err, req, res, next) => {
 // ============================================
 
 const server = app.listen(PORT, () => {
-  console.log('\n╔══════════════════════════════════════════════════════════════╗');
+  console.log('\n╔═══════════════════════════════════════════════════════════════╗');
   console.log('║     RAKT KAVACH v2.0 - Core Logic Initialized               ║');
   console.log('║   National Digital Blood Grid with Zero-Trust Architecture  ║');
-  console.log('╚══════════════════════════════════════════════════════════════╝\n');
+  console.log('╚═══════════════════════════════════════════════════════════════╝\n');
   
   console.log('✓ Express Server initialized on port ' + PORT);
   console.log('✓ Environment: ' + NODE_ENV);
@@ -626,4 +626,4 @@ process.on('SIGINT', () => {
   });
 });
 
-module.exports = { app, server };
+export { app, server };
